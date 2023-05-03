@@ -51,12 +51,13 @@ import Contact from "./components/Contact";
 
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
+  const BACKEND_URL = '';
 
   useEffect(() => {
     store.dispatch(loadUser());
 
     async function getStripApiKey() {
-      const { data } = await axios.get(`/stripeapi`);
+      const { data } = await axios.get(`${BACKEND_URL}/api/v1/stripeapi`);
 
       setStripeApiKey(data.stripeApiKey);
     }
