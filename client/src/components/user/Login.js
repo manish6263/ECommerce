@@ -23,13 +23,18 @@ const Login = () => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
+    console.log('before isauthenticated');
     if (isAuthenticated) {
+      console.log('after isauthenticated');
       history.push(redirect);
     }
 
+    console.log('before iserror');
     if (error) {
+      console.log('inside error');
       alert.error(error);
       dispatch(clearErrors());
+      console.log('after dispatching error');
     }
   }, [dispatch, alert, isAuthenticated, error, history]);
 

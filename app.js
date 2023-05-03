@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "PRODUCTION")
   require("dotenv").config();
 
 // MIDDLEWARES
-app.use(cors({ origin: '*', methods: '*' }));
+app.use(cors({ origin: 'https://ecommerce-backend-j30w.onrender.com', methods: '*', credentials: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

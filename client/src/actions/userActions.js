@@ -106,10 +106,12 @@ export const loadUser = () => async (dispatch) => {
 
         const { data } = await axios.get(`${BACKEND_URL}/api/v1/me`);
 
-        dispatch({
-            type: LOAD_USER_SUCCESS,
-            payload: data.user
-        });
+        if (data.success) {
+            dispatch({
+                type: LOAD_USER_SUCCESS,
+                payload: data.user
+            });
+        }
 
     } catch (error) {
         dispatch({
