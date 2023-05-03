@@ -145,6 +145,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 // Get currently logged in user details   =>   /api/v1/me
 exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id);
+    console.log(user);
 
     res.status(200).json({
         success: true,
@@ -160,7 +161,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     // Check user's previous password
     const isMatched = await user.comparePassword(req.body.oldPassword);
     if (!isMatched) {
-        res.status(400).json({success: false, message: 'Old password is incorrect'});
+        res.status(400).json({ success: false, message: 'Old password is incorrect' });
         // return next(new ErrorHandler('Old password is incorrect'));
     }
 
