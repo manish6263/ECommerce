@@ -119,7 +119,7 @@ export const loadUser = () => async (dispatch) => {
         console.log(error);
         dispatch({
             type: LOAD_USER_FAIL,
-            payload: error
+            payload: error.response.data.message
         });
     }
 };
