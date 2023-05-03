@@ -11,8 +11,7 @@ const path = require("path");
 const errorMiddleware = require("./middlewares/errors");
 
 // Setting up config file
-if (process.env.NODE_ENV !== "PRODUCTION")
-  require("dotenv").config();
+require("dotenv").config();
 
 // MIDDLEWARES
 app.use(cors({ origin: '*', methods: '*' }));

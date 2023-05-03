@@ -10,6 +10,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     const { token } = req.cookies;
 
     if (!token) {
+        console.log('login first to access these resources');
         return next(new ErrorHandler('Login first to access this resource.', 401));
     }
 

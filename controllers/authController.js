@@ -40,7 +40,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     sendToken(user, 200, res);
 });
 
-// Login User  =>  /a[i/v1/login
+// Login User  =>  /api/v1/login
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
 
@@ -144,6 +144,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
 // Get currently logged in user details   =>   /api/v1/me
 exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
+    console.log('before finding loggedin user');
     const user = await User.findById(req.user.id);
     console.log(user);
 
