@@ -47,7 +47,7 @@ const Login = () => {
     dispatch(login(email, password));
   };
   if(loading){
-    return <Loader />
+    // return <Loader />
   }
 
   return (
