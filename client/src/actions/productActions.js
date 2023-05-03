@@ -48,12 +48,14 @@ export const getProducts =
 				}
 
 				const { data } = await axios.get(link);
+				console.log('got all products');
 
 				dispatch({
 					type: ALL_PRODUCTS_SUCCESS,
 					payload: data,
 				});
 			} catch (error) {
+				console.log('not got all products');
 				dispatch({
 					type: ALL_PRODUCTS_FAIL,
 					payload: error,

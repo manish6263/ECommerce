@@ -45,12 +45,14 @@ export const getCategory = () => async (dispatch) => {
     dispatch({ type: ALL_CATEGORY_REQUEST });
 
     const { data } = await axios.get(`/api/v1/genres`);
+    console.log('got all category');
 
     dispatch({
       type: ALL_CATEGORY_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    console.log('not got all category');
     dispatch({
       type: ALL_CATEGORY_FAIL,
       payload: error,
